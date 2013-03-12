@@ -1,0 +1,9 @@
+# compress the files:
+# php_flag zlib.output_compression On
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^/$ index.php [L]
+RewriteCond $1 !^(index\.php|images|css|js)
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
