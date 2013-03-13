@@ -30,4 +30,4 @@ include_once('database.inc.php');
 include_once('routes.inc.php');
 
 //Our main functions file
-include_once('helpers/functions.inc.php');
+include_once(SITE_ROOT.'/application/helpers/functions.inc.php');
