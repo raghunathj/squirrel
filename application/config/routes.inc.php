@@ -7,4 +7,4 @@
 //Make sure your custom routes won't overwrite the current, which can affect the complete system.
 
 //Example route code - Inspired by codeigniter
-//$routes['default'] = 'welcome';
+$routes['default'] = 'welcome';
