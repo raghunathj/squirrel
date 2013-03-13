@@ -17,8 +17,9 @@ class Router{
 			$uri = substr($uri,0,-1);
 		}
 
+		$subdir = '';
 		$method = '';
-		$segments = explode($uri,'/');
+		$segments = @explode($uri,'/');
 		$controller = $segments[0]; //The first segment will always be a controller
 		$controller_path = 'application/controllers/'.$controller.'.php';
 
@@ -30,7 +31,7 @@ class Router{
 			$class = 'default';
 		}
 
-		//Try to retive method
+		//Try to retrive method
 		$controller = $class;
 		if(count($segments) > 0){
 			$method = $segments[0];
@@ -46,6 +47,14 @@ class Router{
 
 		return new Route($controller,$method,$segments);
 	}
+
+	function replace($req_uri, $routeArray) {
+		echo $req_uri;
+		echo $routeArray;
+        //echo $routeArray[$req_uri];
+    }
+
+    
 }
 
 class Route{
