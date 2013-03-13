@@ -30,7 +30,7 @@ include_once(SITE_ROOT."/application/config/config.inc.php");
 //Enable ADODB Database abstraction library
 //more info: http://adodb.sourceforge.net/
 $conn=&ADONewConnection($database_type);
-$conn->PConnect($database_server,$database_username,$database_password,$database_name);
+$conn->PConnect($database_host,$database_username,$database_password,$database_name);
 
 //Autoload available Class files.
 //If there are errors or unable to load a class then break the system
