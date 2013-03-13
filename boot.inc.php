@@ -21,7 +21,7 @@ define('SERVER_NAME',$_SERVER['SERVER_NAME']);
 
 //The enviroment configuration. By default in 'production', but if
 //you are expanding the app or testing your custom libraries then change it to 'development'.
-define('ENV','development')
+define('ENV','development');
 
 define('EXT','.class.php');
 
