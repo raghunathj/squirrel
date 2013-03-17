@@ -4,5 +4,6 @@
 //@path - /software/config/config.inc.php
 //version 1.0
 $sq_options = array(
-	THEME => 'default'
+	THEME => 'default',
+	LOG_FILE => SITE_ROOT.'/application/logs/error.log'
 );
