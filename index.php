@@ -31,6 +31,7 @@ if($subdir == ''){
 	$class_path = SITE_ROOT.'/application/controllers/'.$subdir.'/'.$controller.'.php'; 
 }
 
+//Load the class file from controllers folder
 if(file_exists($class_path)){
 	require_once($class_path);
 	if(class_exists($controller)){
@@ -39,5 +40,18 @@ if(file_exists($class_path)){
 		console_log("Class $controller: Does not exist.");
 		die('Class $controller: not loaded');
 	}
+}else{
+    die('[' . $class_path . '] DOES NOT EXIST');
+}
 
+//Load the method from the above loaded class
+if(method_exists($controller, $method)){
+	call_user_func_array(array($instance, $method), $arguments);
+}else{
+	//If the method is not present check if index method is present, yes - load it else, throw error
+	if(method_exists($controller,'index')){
+		call_user_func_array(array($instance, 'index'), $arguments);
+	}else{
+		die('[' . $controller . '->' . $method . '] DOES NOT EXIST	');
+	}
 }
