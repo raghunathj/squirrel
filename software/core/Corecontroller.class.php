@@ -20,6 +20,7 @@ abstract class Corecontroller{
 			if($data!=null){
 				extract($data);
 			}
+			include $view_path;
 		}else{
 			//Include 404 page inside.
 			include SITE_ROOT.'/application/error/404.php';
