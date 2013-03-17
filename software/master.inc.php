@@ -58,7 +58,7 @@ function __autoload($class){
 	}
 
 	if($loaded == false){
-		console_log("Can't find a file for class: $class  \nPagename: $pageName");
+		console_log("Can't find a file for class: $class  \n");
 	}
 
 }
