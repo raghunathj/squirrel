@@ -16,10 +16,9 @@ class Router{
 		if(ends_with($uri,'/')){
 			$uri = substr($uri,0,-1);
 		}
-
 		$subdir = '';
 		$method = '';
-		$segments = @explode($uri,'/');
+		$segments = explode('/',$uri);
 		$controller = $segments[0]; //The first segment will always be a controller
 		$controller_path = 'application/controllers/'.$controller.'.php';
 
@@ -28,7 +27,7 @@ class Router{
 			$class = $controller;
 			$segments = array_slice($segments,1);
 		}else{
-			$class = 'default';
+			$class = 'welcome';
 		}
 
 		//Try to retrive method
@@ -48,10 +47,11 @@ class Router{
 		return new Route($controller,$method,$segments);
 	}
 
-	function replace($req_uri, $routeArray) {
-		echo $req_uri;
-		echo $routeArray;
-        //echo $routeArray[$req_uri];
+	function replace($req_uri, $routes) {
+		if(isset($routes[$req_uri])){
+			return $routes[$req_uri];
+		}
+		return '';
     }
 
     
