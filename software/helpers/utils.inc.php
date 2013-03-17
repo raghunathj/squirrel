@@ -21,7 +21,13 @@ function redirect($url){
     die();
 }
 
-//Check end_with character
+//Check ends_with character
 function ends_with($str, $sub) {
     return (substr($str, strlen($str) - strlen($sub)) == $sub);
+}
+
+//Get IP address
+function getip(){
+	$iptemp = $_SERVER['REMOTE_ADDR'];
+	return $iptemp;
 }
